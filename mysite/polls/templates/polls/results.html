@@ -1,18 +1,31 @@
-h1>{{ question.question_text }}</h1>
-
+<html>
+<head>
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static "mystyle.css" %}">
+</head>
+<body>
+<h1>{{ question.question_text }}</h1>
+<script>
+    document.write(5 + 6);
+</script>
 <ul>
 {% for choice in question.choice_set.all %}
     <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
 {% endfor %}
 </ul>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+{% for name in names %}
+    <h1>{{ name }}</h1>
+{% endfor %}
 
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
+<h1>Hi world</h1>
 <a href="{% url 'polls:detail' question.id %}">Vote again?</a>
 <div id="map" style="width:400px;height:400px;background:yellow"></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQXG5qgd9OTre3GsTmbh4QR0nLmuo4B2k&callback=myMap"></script>
+
 <script>
-var map
+
 
 function myMap() {
 	var mapOptions = {
@@ -21,6 +34,35 @@ function myMap() {
     mapTypeId: google.maps.MapTypeId.HYBRID
 }
 	map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+	//var directionsDisplay = new google.maps.DirectionsRenderer;
+	//var directionsService = new google.maps.DirectionsService;
+	directionsDisplay.setMap(map);
+	//calculateAndDisplayRoute(directionsService, directionsDisplay)
+	window.alert('Directions request failed due to ');
+
 }
+
+function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+    var myNames = [];
+
+
+    directionsService.route({
+      origin: 'Auckland'
+      destination: 'Queenstown',
+      travelMode: 'DRIVING'
+    }, function(response, status) {
+      if (status === 'OK') {
+        directionsDisplay.setDirections(response);
+      } else {
+        window.alert('Directions request failed due to ' + status);
+      }
+    })
+};
+myMap()
 </script>
+
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQXG5qgd9OTre3GsTmbh4QR0nLmuo4B2k&callback=myMap"></script>
+
+</body>
+</html>

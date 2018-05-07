@@ -14,7 +14,7 @@ import csv
 def load_csv():
     locations = [];
     count = 0;
-    with open("polls/csv/Locations.csv") as f:
+    with open("polls/static/polls/Locations.csv") as f:
         next(f)
         for line in csv.DictReader(f, fieldnames=('Title', 'Price')):
             locations.append(line['Title'])

@@ -1,10 +1,11 @@
-<html>
+
 <head>
     {% load static %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="{% static "mystyle2.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "polls/mystyle2.css" %}">
+
 </head>
-<body>
+
 <h1>{{ question.question_text }}</h1>
 <script>
     document.write(5 + 6);
@@ -15,13 +16,13 @@
 {% endfor %}
 </ul>
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-{% for name in names %}
-    <h1>{{ name }}</h1>
+{% for location in locations %}
+    <h1>{{ location }}</h1>
 {% endfor %}
-
-<h1>Hi world</h1>
+<h1>{{ hotel }}</h1>
+<h1>Hi world me</h1>
 <a href="{% url 'polls:detail' question.id %}">Vote again?</a>
-<div id="map" class="center" style="width:400px;height:400px;background:yellow"></div>
+<div id="map" class="overlay"></div>
 
 <script>
 
@@ -30,28 +31,52 @@ var directionDisplay;
 var directionsService;
 var map;
 function myMap() {
-	var mapOptions = {
-    center: "12A Greenridge Ct, Auckland",
-    zoom: 20,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-}
+    var geocoder = new google.maps.Geocoder();
+    var homeAddress = "12A Greenridge Ct, Auckland"
+    var mapOptions;
+    geocoder.geocode( { 'address': homeAddress}, function(results, status) {
+        if (status = 'OK') {
+            var mapOptions = {
+            center: results[0].geometry.location,
+            zoom: 20,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+        }
+        else {
+            alert('Geocode was not successful for the following reason: ' + status);
+        }
+    })
+
 
 	map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
 	var myNames = [];
-    {% for name in names %}
-        window.alert('{{ name }}')
-        myNames.push('{{ name }}')
-    {% endfor %}
+
     var directionsService = new google.maps.DirectionsService();
-	calculateAndDisplayRoute(directionsService, "12A Greenridge Ct, Auckland", "44 Arrenway Drive, Auckland")
-	calculateAndDisplayRoute(directionsService, "12A Greenridge Ct, Auckland", "19 Cheval Drive, Auckland")
+    var goLocations = [];
+
+    {% for location in locations %}
+        goLocations.push("{{location}}")
+    {% endfor %}
+    for (i = 0; i< goLocations.length; i++) {
+        //alert('get direction for ' + goLocations[i]);
+        geocoder.geocode( { 'address': goLocations[i]}, function(results, status) {
+            if (status = 'OK') {
+                alert('get direction for ' + results[0].geometry.location);
+                calculateAndDisplayRoute(directionsService, '{{hotel}}', results[0].geometry.location)
+            }
+            else {
+                alert('Geocode was not successful for the following reason: ' + status);
+            }
+         })
+
+    }
 
 
 
 }
 
-var i = 1;
+var markerIndex = 1;
 function renderDirections(response, start, end) {
 
     var directionsRenderer = new google.maps.DirectionsRenderer({suppressMarkers: true});
@@ -67,10 +92,10 @@ function renderDirections(response, start, end) {
     });
     var marker = new google.maps.Marker({
     position: my_route.legs[0].end_location,
-    label: "" + i,
+    label: "" + markerIndex,
     map: map
     })
-    i++;
+    markerIndex++;
 
 }
 function calculateAndDisplayRoute(directionsService, start, end) {
@@ -91,6 +116,3 @@ function calculateAndDisplayRoute(directionsService, start, end) {
 </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQXG5qgd9OTre3GsTmbh4QR0nLmuo4B2k&callback=myMap"></script>
-
-</body>
-</html>

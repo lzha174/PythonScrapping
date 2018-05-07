@@ -32,7 +32,7 @@ def parse_results(html, keyword):
     result_block = soup.select("[data-class^=4]")
     for result in result_block:
         rank = rank + 1
-        if rank == 4:
+        if rank == 6:
             break
         #print(result)
         title = result.find('span', attrs={'class': 'sr-hotel__name'})

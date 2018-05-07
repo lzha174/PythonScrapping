@@ -20,9 +20,9 @@ def geocode(address, **geo_args):
     })
     key = {'key': 'AIzaSyDQXG5qgd9OTre3GsTmbh4QR0nLmuo4B2k'}
     url = GEOCODE_BASE_URL + '?' + urllib.parse.urlencode(geo_args) + '&' +  urllib.parse.urlencode(key)
-    print(url)
+    #print(url)
     result = simplejson.load(urllib.request.urlopen(url))
-    print(result)
+    #print(result)
     return result['results']
 
 def reverse_geocode(lat, lng):
@@ -31,9 +31,9 @@ def reverse_geocode(lat, lng):
     }
     key = {'key': 'AIzaSyDQXG5qgd9OTre3GsTmbh4QR0nLmuo4B2k'}
     url = GEOCODE_BASE_URL + '?' + urllib.parse.urlencode(geo_args) + '&' + urllib.parse.urlencode(key)
-    print(url)
+    #print(url)
     result = simplejson.load(urllib.request.urlopen(url))
-    print(result)
+    #print(result)
     return result['results']
 
 def directions(source, destination, **geo_args):
@@ -50,8 +50,8 @@ def output_routes(mode, routes):
     distances = defaultdict(lambda: 0)
     for route in routes:
         for leg in route['legs']:
-            print ("Distance: ", leg['distance']['text'])
-            print ("Duration: ", leg['duration']['text'])
+            #print ("Distance: ", leg['distance']['text'])
+            #print ("Duration: ", leg['duration']['text'])
             for step in leg['steps']:
                 travel_mode = step['travel_mode']
                 if 'html_instructions' in step:

@@ -8,13 +8,16 @@ from polls import GoogleMap
 from polls import ScrapePlanet
 import time
 import csv
-
+import os
 
 
 def load_csv():
     locations = [];
     count = 0;
-    with open("polls/static/polls/Locations.csv") as f:
+    THIS_FOLDER = os.path.dirname(os.path.abspath(__file__)) + '/static/polls/'
+    my_file = os.path.join(THIS_FOLDER, 'Locations.csv')
+    print(THIS_FOLDER)
+    with open(my_file) as f:
         next(f)
         for line in csv.DictReader(f, fieldnames=('Title', 'Price')):
             locations.append(line['Title'])

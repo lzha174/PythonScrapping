@@ -14,7 +14,7 @@ import os
 def load_csv():
     locations = [];
     count = 0;
-    THIS_FOLDER = os.path.dirname(os.path.abspath(__file__)) + '/static/polls/'
+    THIS_FOLDER = os.path.dirname(os.path.abspath(__file__));
     my_file = os.path.join(THIS_FOLDER, 'Locations.csv')
     print(THIS_FOLDER)
     with open(my_file) as f:

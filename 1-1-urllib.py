@@ -9,13 +9,17 @@ from  mysite.polls import ScrapeBookings
 from  mysite.polls import GoogleMap
 from  mysite.polls import ScrapePlanet
 
-def WriteDictToCSV(csv_file,csv_columns,dict_data):
+def WriteDictToCSV(csv_columns, dict_data, mode):
     try:
-        with open(csv_file, 'w') as csvfile:
+        currentPath = os.getcwd()
+        csv_file = currentPath + "/mysite/polls/Locations.csv"
+        with open(csv_file, mode) as csvfile:
             writer = csv.DictWriter(csvfile, fieldnames=csv_columns)
-            writer.writeheader()
+            if (mode == 'w'):
+                writer.writeheader()
             for data in dict_data:
-                writer.writerow(data)
+                    writer.writerow(data)
+
     except IOError:
             print("I/O erroor")
     return
@@ -32,7 +36,6 @@ def load_csv():
 
 
 if __name__ == '__main__':
-    load_csv();
     keywords = ['Queenstown']
     hotels = []
     for keyword in keywords:
@@ -84,10 +87,10 @@ if __name__ == '__main__':
 
     csv_columns = ['Title','Price']
 
-    currentPath = os.getcwd()
-    csv_file = currentPath + "/mysite/polls/csv/Locations.csv"
 
-    WriteDictToCSV(csv_file,csv_columns,interestedLocations);
+    WriteDictToCSV(csv_columns, [{'Title': bestHotel, 'Price': '240'}], 'w');
+    WriteDictToCSV(csv_columns,interestedLocations, 'a');
+
 
 
 

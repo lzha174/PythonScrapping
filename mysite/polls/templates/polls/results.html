@@ -61,7 +61,7 @@ function myMap() {
     for (i = 0; i< goLocations.length; i++) {
         //alert('get direction for ' + goLocations[i]);
         geocoder.geocode( { 'address': goLocations[i]}, function(results, status) {
-            if (status = 'OK') {
+            if (status = 'OK' && results && results[0]) {
                 alert('get direction for ' + results[0].geometry.location);
                 calculateAndDisplayRoute(directionsService, '{{hotel}}', results[0].geometry.location)
             }
@@ -84,7 +84,7 @@ function renderDirections(response, start, end) {
     directionsRenderer.setDirections(response);
      // add start and end markers
     var my_route = response.routes[0];
-    window.alert('leg length is ' + my_route.legs.length)
+    //window.alert('leg length is ' + my_route.legs.length)
     var marker = new google.maps.Marker({
         position: my_route.legs[0].start_location,
         label: "home",

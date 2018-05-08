@@ -15,70 +15,24 @@ def load_csv():
     locations = [];
     count = 0;
     THIS_FOLDER = os.path.dirname(os.path.abspath(__file__));
+    # The first row is the hotel name and price
     my_file = os.path.join(THIS_FOLDER, 'Locations.csv')
     print(THIS_FOLDER)
     with open(my_file) as f:
         next(f)
-        for line in csv.DictReader(f, fieldnames=('Title', 'Price')):
+        for idx, line in enumerate(csv.DictReader(f, fieldnames=('Title', 'Price'))):
+            if (idx == 0):
+                hotel = line['Title'];
+                continue;
             locations.append(line['Title'])
-            if count == 2:
+            if count == 10:
                 break;
             count = count + 1;
-    return locations;
+    return hotel, locations;
 
 
 from .models import Choice, Question
 
-def get_hotel():
-    keywords = ['Queenstown']
-    hotels = []
-    for keyword in keywords:
-        try:
-            results = ScrapeBookings.scrape_bookings(keyword)
-            for result in results:
-                hotels.append(result['Title'] + ' ' + keyword)
-        except Exception as e:
-            print(e)
-        finally:
-            time.sleep(10)
-
-    eight_am = int(time.mktime(time.struct_time([2018, 7, 14, 8, 0, 0, 0, 0, 0])))
-    params = {
-        'mode': 'driving',
-        'region': 'sg',
-        'alternatives': 'false',
-        'departure_time': eight_am,
-    }
-
-    totalTravelTime = 0;
-    minTravelTime = 100000000;
-    bestHotel = '';
-    interestedLocations = ScrapePlanet.get_intrested_locations();
-    for name in hotels:
-        print(name)
-        results = GoogleMap.geocode(address= name)
-        route = results[0]
-        location = route['geometry']['location']
-        lat, lng = location['lat'], location['lng']
-        source = "%s,%s" % (lat, lng)
-        time.sleep(1)
-
-        for location in interestedLocations:
-            data = GoogleMap.directions(source, location['Title'], **params)
-            if len(data['routes']) > 0:
-                timings, dist = GoogleMap.output_routes('driving', data['routes'])
-                #print('Timings:')
-                #print(timings)
-                #print('Distances:')
-                #print(dist)
-                totalTravelTime += timings['driving-DRIVING'];
-        if (totalTravelTime < minTravelTime):
-            minTravelTime = totalTravelTime;
-            bestHotel = name;
-        print('total travel time is ', totalTravelTime)
-        totalTravelTime = 0;
-    print('best hotel is ', bestHotel);
-    return bestHotel, interestedLocations
 
 class IndexView(generic.ListView):
     template_name = 'polls/index.html'
@@ -116,10 +70,14 @@ def detail(request, question_id):
 
 def results(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
-    bestHotel = 'Lakefront Apartments Queenstown'
-    interestedLocations = load_csv();
+    bestHotel, interestedLocations = load_csv();
     print(interestedLocations);
     return render(request, 'polls/results.html', {'question': question, "hotel": bestHotel, 'locations': interestedLocations})
+
+def travel(request):
+    bestHotel, interestedLocations = load_csv();
+    print(interestedLocations);
+    return render(request, 'polls/travel.html', {"hotel": bestHotel, 'locations': interestedLocations})
 
 
 def vote(request, question_id):

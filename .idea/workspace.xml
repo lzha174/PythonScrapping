@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7831ad33-267a-4184-b421-42bcc7be284e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/1-1-urllib.py" beforeDir="false" afterPath="$PROJECT_DIR$/1-1-urllib.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/polls/GoogleMap.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/polls/GoogleMap.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/polls/Locations.csv" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/polls/Locations.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/polls/ScrapeBookings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/polls/ScrapeBookings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/polls/ScrapePlanet.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/polls/ScrapePlanet.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/polls/templates/polls/travel.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/polls/templates/polls/travel.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/polls/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/polls/views.py" afterDir="false" />
     </list>
@@ -19,7 +14,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mysite/polls/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="193">
@@ -31,11 +26,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="travel.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="travel.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mysite/polls/templates/polls/travel.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="85" column="32" selection-start-line="85" selection-start-column="32" selection-end-line="85" selection-end-column="32" />
+            <state relative-caret-position="44">
+              <caret line="6" column="78" selection-start-line="6" selection-start-column="78" selection-end-line="6" selection-end-column="78" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -154,12 +149,12 @@
         <option value="$PROJECT_DIR$/mysite/polls/urls.py" />
         <option value="$PROJECT_DIR$/mysite/polls/ScrapeBookings.py" />
         <option value="$PROJECT_DIR$/mysite/polls/GoogleMap.py" />
-        <option value="$PROJECT_DIR$/mysite/polls/templates/polls/travel.html" />
         <option value="$PROJECT_DIR$/mysite/polls/Coords.csv" />
         <option value="$PROJECT_DIR$/mysite/polls/Locations.csv" />
         <option value="$PROJECT_DIR$/1-1-urllib.py" />
         <option value="$PROJECT_DIR$/mysite/polls/ScrapePlanet.py" />
         <option value="$PROJECT_DIR$/mysite/polls/views.py" />
+        <option value="$PROJECT_DIR$/mysite/polls/templates/polls/travel.html" />
       </list>
     </option>
   </component>
@@ -352,13 +347,13 @@
     <frame x="20" y="23" width="1260" height="610" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.11984127" side_tool="true" visible="true" weight="0.39738807" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4984127" weight="0.3283582" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8801587" visible="true" weight="0.39738807" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.8801587" visible="true" weight="0.39738807" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -740,16 +735,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mysite/polls/templates/polls/travel.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="85" column="32" selection-start-line="85" selection-start-column="32" selection-end-line="85" selection-end-column="32" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mysite/polls/GoogleMap.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="795">
@@ -786,6 +771,16 @@
           <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
           <folding>
             <element signature="e#0#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysite/polls/templates/polls/travel.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="6" column="78" selection-start-line="6" selection-start-column="78" selection-end-line="6" selection-end-column="78" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

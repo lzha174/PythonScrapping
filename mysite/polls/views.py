@@ -23,7 +23,7 @@ def load_location_coords():
         for idx, line in enumerate(csv.DictReader(f, fieldnames=('lat', 'lng'))):
             if (idx == 0):
                 continue;
-            if count == 2:
+            if count == 6:
                 break;
             count = count + 1;
             lats.append(line['lat']);

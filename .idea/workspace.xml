@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7831ad33-267a-4184-b421-42bcc7be284e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/mysite/polls/templates/polls/travel.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/polls/templates/polls/travel.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/polls/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/polls/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,8 +28,8 @@
       <file leaf-file-name="travel.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mysite/polls/templates/polls/travel.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="6" column="78" selection-start-line="6" selection-start-column="78" selection-end-line="6" selection-end-column="78" />
+            <state relative-caret-position="232">
+              <caret line="64" column="15" selection-start-line="64" selection-start-column="15" selection-end-line="64" selection-end-column="15" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -777,8 +776,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mysite/polls/templates/polls/travel.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="6" column="78" selection-start-line="6" selection-start-column="78" selection-end-line="6" selection-end-column="78" />
+        <state relative-caret-position="232">
+          <caret line="64" column="15" selection-start-line="64" selection-start-column="15" selection-end-line="64" selection-end-column="15" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>

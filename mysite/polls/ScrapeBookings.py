@@ -17,8 +17,9 @@ USER_AGENT = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKi
 def fetch_bookings(search_term):
     assert isinstance(search_term, str), 'Search term must be a string'
     escaped_search_term = search_term.replace(' ', '+')
-    booking_url = 'https://www.booking.com/searchresults.en-gb.html?aid=337631&sid=dea4a21834d9c9b6ace20b7df8c17fef&checkin_month=5&checkin_monthday=16&checkin_year=2018&checkout_month=5&checkout_monthday=17&checkout_year=2018&class_interval=1&dest_id=900039039&dest_type=city&dtdisc=0&from_sf=1&group_adults=2&group_children=0&inac=0&index_postcard=0&label_click=undef&nflt=ht_id%3D201%3B&no_rooms=1&offset=0&pop_filter_id=ht_id-201&pop_filter_pos=7&pop_filter_rank=10&postcard=0&raw_dest_type=city&room1=A%2CA&sb_price_type=total&search_selected=1&src=index&src_elem=sb&ss={}%2C%20Otago%2C%20New%20Zealand&ss_all=0&ss_raw=queensto&ssb=empty&sshis=0&rsf=ht_id-201'.format(escaped_search_term)
+    booking_url = "https://www.booking.com/searchresults.en-gb.html?aid=337631&sid=dea4a21834d9c9b6ace20b7df8c17fef&sb=1&src=index&src_elem=sb&error_url=https%3A%2F%2Fwww.booking.com%2Findex.en-gb.html%3Faid%3D337631%3Bsid%3Ddea4a21834d9c9b6ace20b7df8c17fef%3Bsb_price_type%3Dtotal%26%3B&ss=Queenstown&ssne=Queenstown&ssne_untouched=Queenstown&dest_id=900039039&dest_type=city&checkin_monthday=25&checkin_month=5&checkin_year=2018&checkout_monthday=26&checkout_month=5&checkout_year=2018&group_adults=2&group_children=0&no_rooms=1&from_sf=1"
     response = requests.get(booking_url, headers=USER_AGENT)
+
     response.raise_for_status()
     return search_term, response.text
 
@@ -32,7 +33,7 @@ def parse_results(html, keyword):
     result_block = soup.select("[data-class^=4]")
     for result in result_block:
         rank = rank + 1
-        if rank == 6:
+        if rank == 14:
             break
         #print(result)
         title = result.find('span', attrs={'class': 'sr-hotel__name'})

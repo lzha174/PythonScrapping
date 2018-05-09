@@ -10,10 +10,48 @@ import time
 import csv
 import os
 
-
-def load_csv():
-    locations = [];
+def load_location_coords():
+    lats = [];
+    lngs = []
     count = 0;
+    THIS_FOLDER = os.path.dirname(os.path.abspath(__file__));
+    # The first row is the hotel name and price
+    my_file = os.path.join(THIS_FOLDER, 'Coords.csv')
+    print(THIS_FOLDER)
+    with open(my_file) as f:
+        next(f)
+        for idx, line in enumerate(csv.DictReader(f, fieldnames=('lat', 'lng'))):
+            if (idx == 0):
+                continue;
+            if count == 2:
+                break;
+            count = count + 1;
+            lats.append(line['lat']);
+            lngs.append(line['lng']);
+    return lats, lngs;
+
+
+def lood_hotels():
+    count = 0;
+    hotels = [];
+    THIS_FOLDER = os.path.dirname(os.path.abspath(__file__));
+    # The first row is the hotel name and price
+    my_file = os.path.join(THIS_FOLDER, 'Hotels.csv')
+    print(THIS_FOLDER)
+    with open(my_file) as f:
+        next(f)
+        for idx, line in enumerate(csv.DictReader(f, fieldnames=('Title', 'Price'))):
+            hotels.append(line['Title'])
+            if count == 5:
+                break;
+            count = count + 1;
+    print(hotels);
+    return hotels;
+
+
+def load_location_string():
+    count = 0;
+    locations = [];
     THIS_FOLDER = os.path.dirname(os.path.abspath(__file__));
     # The first row is the hotel name and price
     my_file = os.path.join(THIS_FOLDER, 'Locations.csv')
@@ -21,14 +59,11 @@ def load_csv():
     with open(my_file) as f:
         next(f)
         for idx, line in enumerate(csv.DictReader(f, fieldnames=('Title', 'Price'))):
-            if (idx == 0):
-                hotel = line['Title'];
-                continue;
             locations.append(line['Title'])
-            if count == 10:
+            if count == 7:
                 break;
             count = count + 1;
-    return hotel, locations;
+    return locations;
 
 
 from .models import Choice, Question
@@ -70,14 +105,17 @@ def detail(request, question_id):
 
 def results(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
-    bestHotel, interestedLocations = load_csv();
+    interestedLocations = load_location_string();
     print(interestedLocations);
     return render(request, 'polls/results.html', {'question': question, "hotel": bestHotel, 'locations': interestedLocations})
 
 def travel(request):
-    bestHotel, interestedLocations = load_csv();
+    lats, lngs = load_location_coords();
+    hotels = lood_hotels();
+    interestedLocations = load_location_string();
     print(interestedLocations);
-    return render(request, 'polls/travel.html', {"hotel": bestHotel, 'locations': interestedLocations})
+    print(hotels);
+    return render(request, 'polls/travel.html', {"myhotels": hotels, 'locations': interestedLocations, 'lats': lats,'lngs': lngs})
 
 
 def vote(request, question_id):

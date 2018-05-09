@@ -2,7 +2,6 @@
     {% load static %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="{% static "polls/mystyle2.css" %}">
-
 </head>
 <h1>Travel at Queenstown</h1>
 <p>The best hotel to stay is {{hotel}}</p>
@@ -10,95 +9,172 @@
 {% for location in locations %}
     <li>{{ location }}</li>
 {% endfor %}
-<div id="map" class="overlay"></div>
+<div id="map" style="width:80%;height:400px"></div>
 <script>
-
-
 var directionDisplay;
 var directionsService;
-var map;
+var map = '';
+var markers = [];
+var renders = [];
+var myNames = [];
+var red = 'red';
+var blue = 'blue'
+
+
+var goLocations = [];
+var goLats = [];
+var goLngs = [];
+var hotels = [];
+var  h = 0;
+var markerIndex = 1;
+
+
+// Sets the map on all markers in the array.
+function setMapOnAll(map) {
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].setMap(map);
+  }
+  for (var i = 0; i < renders.length; i++) {
+    renders[i].setMap(map);
+  }
+  renders = [];
+  markers = [];
+}
+
+var counter = 0;
+function myLoop () {           //  create a loop function
+    //  call a 3s setTimeout when the loop is called
+      console.log('hello' + h);          //  your code here
+                 //  increment the counter
+    setMapOnAll(null);
+    if (h % 2 == 0) {
+        color = 'red';
+    }
+    else {
+        color = 'blue'
+    }
+    console.log('hotel is ' + hotels[h]);
+    counter = 0;
+    for (var idx = 0; idx < goLats.length; idx++){
+        calculateAndDisplayRoute(directionsService, String(hotels[h]), goLats[idx],  goLngs[idx], color)
+    }
+    h++;
+    if (h  < hotels.length) {
+         setTimeout(function () {//  if the counter < 10, call the loop function
+            myLoop();             //  ..  again which will trigger another
+        }, 10000)
+    }
+}
+
 function myMap() {
     var geocoder = new google.maps.Geocoder();
-    var homeAddress = '{{hotel}}'
-    var mapOptions;
-    geocoder.geocode( { 'address': homeAddress}, function(results, status) {
-        if (status = 'OK') {
-            var mapOptions = {
-            center: results[0].geometry.location,
-            zoom: 6,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-            }
-        }
-        else {
-            console.log('Geocode was not successful for the following reason: ' + status);
-        }
-    })
+    directionsService = new google.maps.DirectionsService();
 
-
-	map = new google.maps.Map(document.getElementById("map"), mapOptions);
-
-	var myNames = [];
-
-    var directionsService = new google.maps.DirectionsService();
-    var goLocations = [];
-
+    {% for lat in lats %}
+        goLats.push({{lat}})
+    {% endfor %}
+    {% for lng in lngs %}
+        goLngs.push({{lng}})
+    {% endfor %}
     {% for location in locations %}
         goLocations.push("{{location}}")
     {% endfor %}
-    for (i = 0; i< goLocations.length; i++) {
-        geocoder.geocode( { 'address': goLocations[i]}, function(results, status) {
-            if (status = 'OK' && results && results[0]) {
-                console.log('get direction for ' + results[0].geometry.location);
-                calculateAndDisplayRoute(directionsService, '{{hotel}}', results[0].geometry.location)
+    {% for hotel in myhotels %}
+        hotels.push("{{hotel}}")
+        console.log('hotel' + "{{hotel}}");
+    {% endfor %}
+    var homeAddress = hotels[0];
+    var mapOptions;
+    geocoder.geocode( { 'address': homeAddress}, function(results, status) {
+        if (status == 'OK') {
+            var mapOptions = {
+            center: results[0].geometry.location,
+            zoom: 80,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
             }
-            else {
-                console.log('Geocode was not successful for the following reason: ' + status);
-            }
-         })
+          console.log("get the geocode");
+          map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
+        bounds = new google.maps.LatLngBounds();
+
+
+        myLoop();
+    } else {
+
+        console.log('Geocode was not successful for the following reason: ' + status);
     }
-
-
-
+    })
 }
 
-var markerIndex = 1;
-function renderDirections(response, start, end) {
 
+
+function renderDirections(response, start, color) {
+    console.log("render " + start);
     var directionsRenderer = new google.maps.DirectionsRenderer({suppressMarkers: true});
+     directionsRenderer.setOptions({
+        polylineOptions: {
+          strokeColor: color,
+        },
+        preserveViewport: true,
+      });
+
     directionsRenderer.setMap(map);
     directionsRenderer.setDirections(response);
+    renders.push(directionsRenderer);
      // add start and end markers
     var my_route = response.routes[0];
-    //window.alert('leg length is ' + my_route.legs.length)
     var marker = new google.maps.Marker({
         position: my_route.legs[0].start_location,
         label: "home",
         map: map
     });
+    bounds.extend(marker.getPosition());
+    markers.push(marker)
     var marker = new google.maps.Marker({
     position: my_route.legs[0].end_location,
-    label: "" + markerIndex,
+    label: start[1] + markerIndex,
     map: map
     })
+
+    markers.push(marker)
     markerIndex++;
+    console.log("extend to "  + marker.getPosition().lat() + " " + marker.getPosition().lng());
+    bounds.extend(marker.getPosition());
+
+
+
+
 
 }
-function calculateAndDisplayRoute(directionsService, start, end) {
-
+function calculateAndDisplayRoute(directionsService, start, lat, lng, color) {
+        console.log("cal " + start + " to " + lat + lng);
         directionsService.route({
           origin: start,
-          destination: end,
+          destination: {lat:lat, lng:lng},
           travelMode: 'DRIVING',
         }, function(response, status) {
-          if (status === 'OK') {
-            renderDirections(response, start, end)
-          } else {
+          if (status == 'OK') {
+                    counter++;
+            renderDirections(response, start, color)
+          }
+          else if (status == 'OVER_QUERY_LIMIT') {
+            setTimeout(function(){
+                console.log('Directions request failed due to ' + status, 'retry');
+                calculateAndDisplayRoute(directionsService, start, lat, lng, color)
+            }, 2000)
+          }
+          else {
+                    counter++;
             console.log('Directions request failed due to ' + status);
           }
+
+          if (counter == goLats.length) {
+             console.log("time to set bound");
+             map.fitBounds(bounds);
+           }
         });
-      }
+}
 
 </script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQXG5qgd9OTre3GsTmbh4QR0nLmuo4B2k&callback=myMap"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQXG5qgd9OTre3GsTmbh4QR0nLmuo4B2k&callback=myMap"></script>

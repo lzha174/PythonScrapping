@@ -22,11 +22,14 @@ def parse_results(html, keyword):
         title = result.find('div', attrs={'class':'listing_title'});
         price = result.find('div', attrs={'class':'price_test'});
         if (title and price):
+            title = title.get_text()
+            if  'Te Anau' in title or 'Glenorchy' in title or 'Doubtful' in title:
+                continue;
             index = price.get_text().find("$");
             price = price.get_text()[index+1:];
             price = price.replace('*','');
             #print(title.get_text(), price);
-            results.append({'Title': title.get_text(), 'Price': price})
+            results.append({'Title': title, 'Price': price})
 
 
     return results

@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7831ad33-267a-4184-b421-42bcc7be284e" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/mysite/polls/templates/polls/travel.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/1-1-urllib.py" beforeDir="false" afterPath="$PROJECT_DIR$/1-1-urllib.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/polls/GoogleMap.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/polls/GoogleMap.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/polls/Locations.csv" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/polls/Locations.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/polls/csv/Locations.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/polls/templates/polls/results.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/polls/templates/polls/results.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/polls/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/polls/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/polls/ScrapeBookings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/polls/ScrapeBookings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/polls/ScrapePlanet.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/polls/ScrapePlanet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/polls/templates/polls/travel.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/polls/templates/polls/travel.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/polls/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/polls/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mysite/polls/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-579">
-              <caret line="25" column="24" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+            <state relative-caret-position="193">
+              <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
               <folding>
                 <element signature="e#0#54#0" expanded="true" />
               </folding>
@@ -33,20 +31,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="travel.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="travel.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mysite/polls/templates/polls/travel.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
+            <state relative-caret-position="232">
+              <caret line="85" column="32" selection-start-line="85" selection-start-column="32" selection-end-line="85" selection-end-column="32" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mysite/mysite/settings.py">
+      <file leaf-file-name="Coords.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mysite/polls/Coords.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="121" column="20" selection-start-line="121" selection-start-column="20" selection-end-line="121" selection-end-column="20" />
+            <state>
+              <caret column="7" selection-start-column="7" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -54,7 +55,7 @@
       <file leaf-file-name="results.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mysite/polls/templates/polls/results.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
+            <state relative-caret-position="210">
               <caret line="14" column="8" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="8" />
               <folding>
                 <element signature="n#script#1;n#!!top" />
@@ -66,19 +67,11 @@
       <file leaf-file-name="ScrapePlanet.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mysite/polls/ScrapePlanet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-551">
+            <state relative-caret-position="149">
+              <caret line="25" column="81" selection-start-line="25" selection-start-column="81" selection-end-line="25" selection-end-column="81" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mystyle2.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mysite/static/polls/mystyle2.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="21" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -98,8 +91,8 @@
       <file leaf-file-name="1-1-urllib.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/1-1-urllib.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+            <state relative-caret-position="141">
+              <caret line="97" column="62" selection-start-line="97" selection-start-column="35" selection-end-line="97" selection-end-column="62" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -107,14 +100,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScrapeBookings.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mysite/polls/ScrapeBookings.py">
+      <file leaf-file-name="Locations.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mysite/polls/Locations.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="42" column="25" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="25" />
-              <folding>
-                <element signature="e#0#29#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="210">
+              <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -122,8 +112,8 @@
       <file leaf-file-name="GoogleMap.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mysite/polls/GoogleMap.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="466">
-              <caret line="42" column="6" selection-start-line="42" selection-start-column="6" selection-end-line="42" selection-end-column="6" />
+            <state relative-caret-position="795">
+              <caret line="109" column="33" selection-start-line="109" selection-start-column="18" selection-end-line="109" selection-end-column="33" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
@@ -158,14 +148,18 @@
         <option value="$PROJECT_DIR$/ScrapePlanet.py" />
         <option value="$PROJECT_DIR$/ScrapeBookings.py" />
         <option value="$PROJECT_DIR$/GoogleMap.py" />
-        <option value="$PROJECT_DIR$/mysite/polls/GoogleMap.py" />
         <option value="$PROJECT_DIR$/mysite/polls/static/polls/mystyle2.css" />
         <option value="$PROJECT_DIR$/mysite/mysite/settings.py" />
         <option value="$PROJECT_DIR$/mysite/polls/templates/polls/results.html" />
-        <option value="$PROJECT_DIR$/1-1-urllib.py" />
         <option value="$PROJECT_DIR$/mysite/polls/urls.py" />
-        <option value="$PROJECT_DIR$/mysite/polls/views.py" />
+        <option value="$PROJECT_DIR$/mysite/polls/ScrapeBookings.py" />
+        <option value="$PROJECT_DIR$/mysite/polls/GoogleMap.py" />
         <option value="$PROJECT_DIR$/mysite/polls/templates/polls/travel.html" />
+        <option value="$PROJECT_DIR$/mysite/polls/Coords.csv" />
+        <option value="$PROJECT_DIR$/mysite/polls/Locations.csv" />
+        <option value="$PROJECT_DIR$/1-1-urllib.py" />
+        <option value="$PROJECT_DIR$/mysite/polls/ScrapePlanet.py" />
+        <option value="$PROJECT_DIR$/mysite/polls/views.py" />
       </list>
     </option>
   </component>
@@ -360,10 +354,11 @@
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.11825397" side_tool="true" visible="true" weight="0.39738807" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.11984127" side_tool="true" visible="true" weight="0.39738807" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4984127" weight="0.3283582" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.88174605" visible="true" weight="0.39738807" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8801587" visible="true" weight="0.39738807" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -374,7 +369,6 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49920633" weight="0.3283582" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -394,7 +388,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/1-1-urllib.py</url>
-          <line>84</line>
+          <line>102</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
@@ -402,33 +396,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mysite/polls/templates/polls/results.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="34" column="35" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
-          <folding>
-            <element signature="n#script#1;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mysite/polls/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mysite/polls/templates/polls/results.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="60" selection-start-line="4" selection-start-column="60" selection-end-line="4" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mysite/polls/templates/polls/detail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -712,26 +679,6 @@
     <entry file="file://$PROJECT_DIR$/mysite/polls/csv/BestHotel.csv">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/mysite/polls/ScrapeBookings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="42" column="25" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mysite/polls/GoogleMap.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="42" column="6" selection-start-line="42" selection-start-column="6" selection-end-line="42" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mysite/static/polls/mystyle2.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="163">
@@ -746,22 +693,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mysite/polls/ScrapePlanet.py">
+    <entry file="file://$PROJECT_DIR$/mysite/polls/ScrapeBookings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-551">
+        <state relative-caret-position="-98">
+          <caret line="31" column="32" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/1-1-urllib.py">
+    <entry file="file://$PROJECT_DIR$/mysite/polls/templates/polls/results.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+        <state relative-caret-position="210">
+          <caret line="14" column="8" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="8" />
           <folding>
-            <element signature="e#0#29#0" expanded="true" />
+            <element signature="n#script#1;n#!!top" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysite/polls/Coords.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="7" selection-start-column="7" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -775,30 +730,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mysite/polls/templates/polls/results.html">
+    <entry file="file://$PROJECT_DIR$/mysite/polls/Hotels.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysite/polls/Locations.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="14" column="8" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="8" />
+        <state relative-caret-position="210">
+          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysite/polls/templates/polls/travel.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="85" column="32" selection-start-line="85" selection-start-column="32" selection-end-line="85" selection-end-column="32" />
           <folding>
-            <element signature="n#script#1;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysite/polls/GoogleMap.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="795">
+          <caret line="109" column="33" selection-start-line="109" selection-start-column="18" selection-end-line="109" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1-1-urllib.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="97" column="62" selection-start-line="97" selection-start-column="35" selection-end-line="97" selection-end-column="62" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysite/polls/ScrapePlanet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="25" column="81" selection-start-line="25" selection-start-column="81" selection-end-line="25" selection-end-column="81" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mysite/polls/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-579">
-          <caret line="25" column="24" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+        <state relative-caret-position="193">
+          <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
           <folding>
             <element signature="e#0#54#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mysite/polls/templates/polls/travel.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
         </state>
       </provider>
     </entry>

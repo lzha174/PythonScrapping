@@ -41,7 +41,7 @@ def directions(source, destination, **geo_args):
         'origin': source,
         'destination': destination
     })
-    print(geo_args)
+    #print(geo_args)
     url = DIRECTIONS_BASE_URL + '?' + urllib.parse.urlencode(geo_args)
     return simplejson.load(urllib.request.urlopen(url))
 
@@ -62,8 +62,8 @@ def output_routes(mode, routes):
                 distance = step['distance']
                 duration = step['duration']
                 encoded_direction_text = direction_text.encode('latin1', errors='ignore')
-                print ("%s (%s, %s, %s)" % (encoded_direction_text, travel_mode,
-                    duration['text'], distance['text']))
+                #print ("%s (%s, %s, %s)" % (encoded_direction_text, travel_mode,
+                 #   duration['text'], distance['text']))
                 timings["%s-%s" % (mode, travel_mode)] += duration['value']
                 distances["%s-%s" % (mode, travel_mode)] += distance['value']
     return timings, distances

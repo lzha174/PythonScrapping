@@ -23,8 +23,6 @@ def load_location_coords():
         for idx, line in enumerate(csv.DictReader(f, fieldnames=('lat', 'lng'))):
             if (idx == 0):
                 continue;
-            if count == 6:
-                break;
             count = count + 1;
             lats.append(line['lat']);
             lngs.append(line['lng']);
@@ -40,10 +38,8 @@ def lood_hotels():
     print(THIS_FOLDER)
     with open(my_file) as f:
         next(f)
-        for idx, line in enumerate(csv.DictReader(f, fieldnames=('Title', 'Price'))):
+        for idx, line in enumerate(csv.DictReader(f, fieldnames=('Title', 'Price', 'Traveltime'))):
             hotels.append(line['Title'])
-            if count == 5:
-                break;
             count = count + 1;
     print(hotels);
     return hotels;
@@ -60,8 +56,6 @@ def load_location_string():
         next(f)
         for idx, line in enumerate(csv.DictReader(f, fieldnames=('Title', 'Price'))):
             locations.append(line['Title'])
-            if count == 7:
-                break;
             count = count + 1;
     return locations;
 
@@ -115,7 +109,7 @@ def travel(request):
     interestedLocations = load_location_string();
     print(interestedLocations);
     print(hotels);
-    return render(request, 'polls/travel.html', {"myhotels": hotels, 'locations': interestedLocations, 'lats': lats,'lngs': lngs})
+    return render(request, 'polls/travel.html', {"myhotels": hotels, 'locations': interestedLocations, 'lats': lats,'lngs': lngs, 'bestHotel':hotels[0]})
 
 
 def vote(request, question_id):

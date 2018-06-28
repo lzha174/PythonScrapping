@@ -23,7 +23,7 @@ def parse_results(html, keyword):
         price = result.find('div', attrs={'class':'price_test'});
         if (title and price):
             title = title.get_text()
-            if  'Te Anau' in title or 'Glenorchy' in title or 'Doubtful' in title:
+            if  'Te Anau' in title or 'Glenorchy' in title or 'Auckland' in title:
                 continue;
             index = price.get_text().find("$");
             price = price.get_text()[index+1:];

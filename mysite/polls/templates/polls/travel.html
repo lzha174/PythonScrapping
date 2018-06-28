@@ -4,7 +4,7 @@
     <link rel="stylesheet" type="text/css" href="{% static "polls/mystyle2.css" %}">
 </head>
 <h1>Travel at Queenstown</h1>
-<p>The best hotel to stay is Copthorne Hotel & Apartments Queenstown Lakeview </p>
+<p>The best hotel to stay is {{bestHotel}} </p>
 <h2>You can go to:</h2>
 {% for location in locations %}
     <li>{{ location }}</li>
@@ -61,8 +61,8 @@ function myLoop () {           //  create a loop function
     h++;
     if (h  < hotels.length) {
          setTimeout(function () {//  if the counter < 10, call the loop function
-            myLoop();             //  ..  again which will trigger another
-        }, 5000)
+           // myLoop();             //  ..  again which will trigger another
+        }, 10000)
     }
 }
 
@@ -161,7 +161,7 @@ function calculateAndDisplayRoute(directionsService, start, lat, lng, color) {
             setTimeout(function(){
                 console.log('Directions request failed due to ' + status, 'retry');
                 calculateAndDisplayRoute(directionsService, start, lat, lng, color)
-            }, 2000)
+            }, 6000)
           }
           else {
                     counter++;

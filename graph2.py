@@ -28,6 +28,10 @@ class Route:
     def set_tour(self, tour):
         self.tour = tour;
 
+    def get_tour(self):
+
+        return self.tour
+
 class Vertex:
     def __init__(self, node, index):
         self.id = node
@@ -258,8 +262,9 @@ class Graph:
 
         #print('value is ')
         #print(tour.total_weight(tour.sort_edges()))
-        best_value, optimal_tour = self.loop_2_tabu(tour)
-        return optimal_tour
+        best_value, optimal_tour = self.tabu_v2(tour.dfs('a', 'a'))
+        print('tabu on greedy is ', best_value)
+        return tour
 
     def total_weight(self, edges):
         total_weight = 0;
@@ -269,80 +274,55 @@ class Graph:
     def print_edges(self):
         print(self.sort_edges())
 
-    
-    def loop_2_tabu(self, tour, best_value=199999, tabu_list=[]):
-        best_tour = tour
-        local_improve = False;
-        sorted_edges = tour.sort_edges()
-        print(sorted_edges)
+    def get_weight_sum(self, edges):
+        total_weight = 0
+        for i in range(0, len(edges) - 1):
+            total_weight += self.get_vertex(edges[i]).get_weight(self.get_vertex(edges[i+1]))
+        return total_weight
+
+    def tabu_v2(self, edges: list, best_value=2000):
+        tabu_list = []
+        best_value = self.get_weight_sum(edges)
+        best_edges = edges
+
         used_tabu = False;
         counter = 0;
         while counter < 1000:
-            for i in range(0, len(sorted_edges) - 1):
-                for j in range(i+1, len(sorted_edges)):
-                    counter += 1;
+            for i in range(0, len(edges) - 2):
+                for j in range(i + 2, len(edges) - 1):
+                    counter += 1
                     if counter == 1000:
-                        print(used_tabu)
-                        print('tabu is ',best_value)
-                        return best_value, best_tour;
-                    city1 = sorted_edges[i][0];
-                    city2 = sorted_edges[i][1];
-                    city3 = sorted_edges[j][0];
-                    city4 = sorted_edges[j][1];
-                    if city1 != city3 and city1 != city4 and city2 != city3 and city2 != city4:
-                        #swap edge
-                        new_edge1_weight = self.vert_dict[city1].get_weight(self.vert_dict[city3])
-                        new_edge2_weight = self.vert_dict[city2].get_weight(self.vert_dict[city4])
-                        dif = sorted_edges[i][2] + sorted_edges[j][2] - new_edge1_weight - new_edge2_weight
-                        copy_edges = copy.deepcopy(sorted_edges)
-                        # if a move is not in tabu, just do it.
-                        # if a move is in tabu, but it improves, do it
-
-                        #print('remove edge ', sorted_edges[i], sorted_edges[j])
-                        new_tour = copy.deepcopy(tour);
-                        new_tour.remove_edge(city1, city2);
-                        new_tour.remove_edge(city3, city4);
-
-                        path1 = tour.dfs(city1, city1);
-                        if path1.index(city2) > path1.index(city3) and path1.index(city3) < path1.index(city4):
-                            city = city4;
-                            city4 = city3;
-                            city3 = city
-                        if path1.index(city2) < path1.index(city3) and path1.index(city3) > path1.index(city4):
-                            city = city4;
-                            city4 = city3;
-                            city3 = city
-                        if (city1, city2, city3, city4) in tabu_list and dif <=0:
-                            continue;
-                        if (city1, city3, city2, city4) in tabu_list:
-                            used_tabu = True;
-                        local_improve = True;
-                        if not (city1, city3, city2, city4) in tabu_list:
-                            tabu_list.append((city1, city3, city2, city4));
+                        print('best edge is ', best_edges, best_value)
+                        return best_value, best_edges
+                    city1 = edges[i]
+                    city2 = edges[i + 1]
+                    city3 = edges[j]
+                    city4 = edges[j + 1]
+                    new_edge1_weight = self.vert_dict[city1].get_weight(self.vert_dict[city3])
+                    new_edge2_weight = self.vert_dict[city2].get_weight(self.vert_dict[city4])
+                    dif = self.vert_dict[city1].get_weight(self.vert_dict[city2]) + self.vert_dict[city3].get_weight(self.vert_dict[city4])  - new_edge1_weight - new_edge2_weight
+                    copy_edges = copy.deepcopy(edges)
+                    if (city1, city2, city3, city4) in tabu_list and dif <= 0:
+                        continue;
+                    if (city1, city3, city2, city4) in tabu_list:
+                        used_tabu = True;
+                    if not (city1, city3, city2, city4) in tabu_list:
+                        tabu_list.append((city1, city3, city2, city4));
+                    #swap edges
+                    copy_edges = copy.deepcopy(edges)
+                    subedges = copy_edges[i+1 : j+1]
+                    reverse_subedges = subedges[::-1]
+                    new_edges = copy_edges[0: i+1]
+                    new_edges.extend(reverse_subedges)
+                    new_edges.extend(copy_edges[j+1:])
+                    total_weight = self.get_weight_sum(new_edges)
+                    if total_weight < best_value:
+                        best_value = total_weight
+                        best_edges = new_edges
+                        edges = new_edges
 
 
-
-                        new_tour.add_edge(city1, city3, new_edge1_weight);
-                        new_tour.add_edge(city2, city4, new_edge2_weight);
-
-                        n = 5
-                        if len(tabu_list) > n:
-                            del tabu_list[:n]
-                        del copy_edges[copy_edges.index(sorted_edges[i])]
-                        del copy_edges[copy_edges.index(sorted_edges[j])]
-
-                        copy_edges.append((city1, city3, new_edge1_weight))
-                        copy_edges.append((city2, city4, new_edge2_weight))
-
-
-                        sorted_edges = copy.deepcopy(copy_edges);
-                        total_weight = tour.total_weight(sorted_edges);
-                        tour = copy.deepcopy(new_tour)
-                        if total_weight < best_value:
-                            best_value = total_weight;
-                            best_tour = new_tour;
-
-        return best_value, best_tour
+        return best_value, best_edges
 
     def loop_2_opt(self, tour):
         local_improve = False;
@@ -495,7 +475,8 @@ class Graph:
 
 def vehicle_routing(tour: Graph, base_graph: Graph):
     tour_array = tour.dfs('a', 'a')
-    print(tour_array)
+    tour_array = ['a', 'b', 'c', 'd', 'e', 'f', 'a']
+    print('tour array is ', tour_array)
     vehicle_capacity = 3;
     routes = []
     vehicle_instance = Route(vehicle_capacity, len(routes))
@@ -530,21 +511,12 @@ def vehicle_routing(tour: Graph, base_graph: Graph):
 
     for r in routes:
         print(r)
+        best_value, best_edges = base_graph.tabu_v2(r.get_tour())
+        print('tabu v2 is ', best_value)
 
-    tours = [];
 
-    for r in routes:
-        new_tour = Graph()
-        for i in range(0, r.len()-1):
-            new_tour.add_edge(r[i], r[i+1], base_graph.get_vertex(r[i]).get_weight(base_graph.get_vertex(r[i+1])))
 
-        tours.append(new_tour)
-    i = 0
-    for tour in tours:
-        best_value, best_tour = base_graph.loop_2_tabu(tour, tour.total_weight(tour.sort_edges()))
-        print(best_tour.dfs('a', 'a'))
-        routes[i].set_tour(best_tour.dfs('a', 'a'))
-        print(routes[i])
+
 
 if __name__ == '__main__':
     g = Graph()

@@ -27,6 +27,7 @@ To run this example from the command line, use
 from math import fabs
 
 import cplex
+from sortedcontainers import SortedList
 
 # number of warehouses
 nbwhouses = 4
@@ -130,4 +131,6 @@ def warehouse():
 
 def solve():
     warehouse();
+    sl = SortedList(['e', 'a', 'c', 'd', 'b'])
+    print(sl)
 

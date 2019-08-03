@@ -1,4 +1,5 @@
 import cplex
+from sortedcontainers import SortedList
 nbPeople = 2
 nbJobs = 2
 happyniess = [[1,3], [5,1]]
@@ -6,6 +7,42 @@ happyniess = [[1,3], [5,1]]
 #problem variables
 assignvars = []
 
+class Staff:
+    def __init__(self, cost):
+        self.cost = cost
+        self.counter = 1
+
+    def __lt__(self, other):
+        return self.cost < other.cost
+
+    # return comparison
+    def __le__(self, other):
+        return self.cost <= other.cost
+
+    # return comparison
+    def __eq__(self, other):
+        return self.cost == other.cost
+
+    # return comparison
+    def __ne__(self, other):
+        return self.cost != other.cost
+
+    # return comparison
+    def __gt__(self, other):
+        return self.cost > other.cost
+
+    # return comparison
+    def __ge__(self, other):
+        return self.cost >= other.cost
+    def __str__(self):
+        return "cost is " + str(self.cost)
+
+
+
+    def __iter__(self):
+        return self
+
+# return comparison
 def varIndex(i,j):
     return i * nbPeople + j * (nbJobs - 1)
 def setupProblem(c):
@@ -70,3 +107,20 @@ def simpleAssign():
                 c.solution.get_values(varIndex(i, j))),
                 end='')
         print()
+
+    sl = SortedList(['e', 'a', 'c', 'd', 'b'])
+    print(sl)
+
+    s1 = Staff(20)
+    s2 = Staff(10)
+    staff = [s1]
+    staff.append(s2)
+    for i in staff:
+        print(i)
+
+    sk = SortedList([s1,s2])
+    for i in sk:
+        print(i)
+    print(sk)
+    sk.remove(s2)
+    print(sk)

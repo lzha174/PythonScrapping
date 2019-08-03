@@ -2,22 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7831ad33-267a-4184-b421-42bcc7be284e" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/AssignmentModel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/cpo_config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/main/python/SimpleAssign.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/main/python/StaffAssignment.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/main/python/mysqltest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WhiskasModel1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cuttingstock.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstpandas.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lepx1..py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/transportation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vrt.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vrtresourceconstraint.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vrttw.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wedding.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph2.py" beforeDir="false" afterPath="$PROJECT_DIR$/graph2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/FirstGui.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/main/python/SimpleAssign.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/python/SimpleAssign.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/main/python/StaffAssignment.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/python/StaffAssignment.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/pip-selfcheck.json" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pip-selfcheck.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,11 +20,8 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GUI/src/main/python/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
+            <state relative-caret-position="1380">
               <caret line="108" column="22" selection-start-line="108" selection-start-column="22" selection-end-line="108" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#29#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -44,11 +29,8 @@
       <file leaf-file-name="StaffAssignment.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GUI/src/main/python/StaffAssignment.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="473">
-              <caret line="121" column="44" selection-start-line="121" selection-start-column="37" selection-end-line="121" selection-end-column="44" />
-              <folding>
-                <element signature="e#951#972#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="139">
+              <caret line="29" selection-start-line="29" selection-end-line="29" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -56,8 +38,11 @@
       <file leaf-file-name="SimpleAssign.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GUI/src/main/python/SimpleAssign.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
+            <state relative-caret-position="152">
+              <caret line="120" column="28" lean-forward="true" selection-start-line="120" selection-start-column="28" selection-end-line="120" selection-end-column="28" />
+              <folding>
+                <element signature="e#0#12#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -136,8 +121,8 @@
         <option value="$PROJECT_DIR$/GUI/cpo_config.py" />
         <option value="$PROJECT_DIR$/GUI/FirstGui.py" />
         <option value="$PROJECT_DIR$/GUI/src/main/python/mysqltest.py" />
-        <option value="$PROJECT_DIR$/GUI/src/main/python/StaffAssignment.py" />
         <option value="$PROJECT_DIR$/GUI/src/main/python/main.py" />
+        <option value="$PROJECT_DIR$/GUI/src/main/python/StaffAssignment.py" />
         <option value="$PROJECT_DIR$/GUI/src/main/python/SimpleAssign.py" />
       </list>
     </option>
@@ -155,6 +140,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -232,7 +218,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -440,13 +425,34 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/GUI/src/main/python/StaffAssignment.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1785">
+          <caret line="121" column="44" selection-start-line="121" selection-start-column="37" selection-end-line="121" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/src/main/python/mysqltest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/src/main/python/SimpleAssign.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="990">
+          <caret line="66" column="43" lean-forward="true" selection-start-line="66" selection-start-column="43" selection-end-line="66" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/GUI/src/main/python/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="29" selection-start-column="29" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -454,17 +460,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1065">
           <caret line="71" column="33" selection-start-line="71" selection-start-column="26" selection-end-line="71" selection-end-column="33" />
-          <folding>
-            <element signature="e#951#972#0" expanded="true" />
-          </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mysite/polls/urls.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mysite/polls/GoogleMap.py">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/GUI/FirstGui.py" />
     <entry file="file://$PROJECT_DIR$/cuttingstock.py">
@@ -712,9 +709,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mysite/polls/GoogleMap.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/GUI/cpo_config.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -730,16 +724,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mysite/polls/urls.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/GUI/src/main/python/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
+        <state relative-caret-position="1380">
           <caret line="108" column="22" selection-start-line="108" selection-start-column="22" selection-end-line="108" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -752,18 +740,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/GUI/src/main/python/StaffAssignment.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="121" column="44" selection-start-line="121" selection-start-column="37" selection-end-line="121" selection-end-column="44" />
-          <folding>
-            <element signature="e#951#972#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="139">
+          <caret line="29" selection-start-line="29" selection-end-line="29" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharmCE2018.1/python_stubs/-1103401049/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="811" column="8" selection-start-line="811" selection-start-column="8" selection-end-line="811" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/GUI/src/main/python/SimpleAssign.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
+        <state relative-caret-position="152">
+          <caret line="120" column="28" lean-forward="true" selection-start-line="120" selection-start-column="28" selection-end-line="120" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
